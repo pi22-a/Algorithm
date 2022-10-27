@@ -2,8 +2,6 @@ package practice;
 
 
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
 
 public class Player {
     public String solution(String[] Participant, String[] Completion){
@@ -14,10 +12,19 @@ public class Player {
         for (String player : Completion)
             map.put(player, map.get(player) - 1);
 
-        Iterator<Map.Entry<String, Integer>> iter = map.entrySet().iterator();
+        for (String key : map.keySet()){
+            if (map.get(key) > 0)
+            {
+                answer = key;
+                break;
+            }
+        }
+        return answer;
     }
     public static void main(String[] args){
         String[] part = {"leo", "kiki", "eden"};
-        String[] comp = {"eden", "kiki"};////
+        String[] comp = {"eden", "kiki"};
+        Player sol = new Player();
+        System.out.println(sol.solution(part, comp));
     }
 }
