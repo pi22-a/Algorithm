@@ -18,6 +18,6 @@ public class Player {
     }
     public static void main(String[] args){
         String[] part = {"leo", "kiki", "eden"};
-        String[] comp = {"eden", "kiki"};
+        String[] comp = {"eden", "kiki"};//
     }
 }
