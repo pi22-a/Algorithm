@@ -1,21 +1,21 @@
 package practice;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Prime {
-    // 1. 1부터 N(자기 자신)으로 나누어 나머지가 '0'인 횟수를 체크한다.
-    // (이때, N이 증가할 때마다 count가 초기화 되어야 하므로 중첩 for문 외부에 작성)
-    // 2. 조건문을 통해 count가 2인 수를 출력하여 소수를 추출한다.
-    public static void main(String[] args) {
-        for(int i = 1; i <= 50; i++) {
-            int count = 0;
+    // list에 가장 작은 소수(2)를 넣어두고, 반복문을 돌리며 소수로 나누어 떨어지는지 여부를 확인
+    public int number(int n){
+        int a=0;
+        List<Integer>list = new ArrayList<Integer>();
+        list.add(2);
 
-            for(int j = 1; j <= i; j++) {
-                if(i%j == 0) {
-                    count++;
-                }
+        for (int i = 2; i <= n; i++) {
+            for (int j = 0; j < list.size(); j++) {
+                if(i % list.get(j) == 0) break;
+                if(list.size() == j+1) list.add(i);
             }
-
-            if(count == 2) {
-                System.out.println(i);
-            }
+        }
+        return list.size();
     }
 }
